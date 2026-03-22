@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constructors", "Constructor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encapsulation", "Encapsulation\Encapsulation.csproj", "{6EDBB569-48F3-4272-A670-D41182AD0231}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\Inheritance.csproj", "{27644E11-AAE5-488B-A6F2-91FA6FAD9B1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{6EDBB569-48F3-4272-A670-D41182AD0231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EDBB569-48F3-4272-A670-D41182AD0231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EDBB569-48F3-4272-A670-D41182AD0231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27644E11-AAE5-488B-A6F2-91FA6FAD9B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27644E11-AAE5-488B-A6F2-91FA6FAD9B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27644E11-AAE5-488B-A6F2-91FA6FAD9B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27644E11-AAE5-488B-A6F2-91FA6FAD9B1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
