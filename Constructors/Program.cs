@@ -19,7 +19,7 @@ namespace Constructors
         // parameterised constructor is added
         public NonStaticClass()
         {
-            System.Console.WriteLine("Default");
+            System.Console.WriteLine("Default constructor NonStaticClass");
             this._field1 += 1;
         }
 
@@ -47,6 +47,7 @@ namespace Constructors
         }
 
         //calling private constructor using another public constructor
+        //constructor chaining in same class
         public NonStaticClass(int x, int y, int z) : this(x, y)
         {
             System.Console.WriteLine("Private using other constructor");
@@ -60,6 +61,25 @@ namespace Constructors
             //useful in case of complex object creation is required
             System.Console.WriteLine("Private using other public method");
             return new NonStaticClass(a, b);
+        }
+    }
+
+    class DerivedNonStaticClass : NonStaticClass
+    {
+        public DerivedNonStaticClass() : base()
+        {
+            //first base class constructor is called and then child class
+            System.Console.WriteLine("Default constructor DerivedNonStaticClass");
+        }
+    }
+
+    class Derived2NonStaticClass : DerivedNonStaticClass
+    {
+        //constructor chaining to base class
+        public Derived2NonStaticClass() : base()
+        {
+            //first TOP PARENT class constructor is called and then followed to botton most constructor
+            System.Console.WriteLine("Default constructor Derived2NonStaticClass");
         }
     }
 
@@ -86,6 +106,10 @@ namespace Constructors
             //using public constructor
             NonStaticClass nonStaticClass5 = new NonStaticClass(1, 1, 2);
             System.Console.WriteLine(nonStaticClass5.Field1);
+
+            //impact of inheritance on constructors
+            Derived2NonStaticClass derived2NonStaticClass = new Derived2NonStaticClass();
+
         }
     }
 }
