@@ -25,8 +25,7 @@ namespace Constructors
             }
         }
 
-        //default constructor if no 
-        // parameterised constructor is added
+        //default constructor AUTO ADDED; if no parameterised constructor is added
         public NonStaticClass()
         {
             System.Console.WriteLine("Default constructor NonStaticClass");
@@ -50,7 +49,7 @@ namespace Constructors
         //static constructor is used to initilialise static field / properties
         //it can be part of static and non-static class
         //called only once
-        //class when first object is created OR static member is accessed
+        //called BEFORE first object is created OR static member is accessed
         static NonStaticClass()
         {
             System.Console.WriteLine("Static constructor");
