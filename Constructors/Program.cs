@@ -1,2 +1,92 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//cunstroctors are special methods 
+//which gets involved while object creation
+
+namespace Constructors
+{
+    class NonStaticClass
+    {
+        private int _field1 = 0;
+
+        public int Field1
+        {
+            get
+            {
+                return this._field1;
+            }
+        }
+
+        //default constructor if no 
+        // parameterised constructor is added
+        public NonStaticClass()
+        {
+            System.Console.WriteLine("Default");
+            this._field1 += 1;
+        }
+
+        //parameterised constructor which accept one or more parameters
+        public NonStaticClass(int val)
+        {
+            System.Console.WriteLine("Parameterised");
+            this._field1 = val;
+        }
+
+        //copy constructor
+        public NonStaticClass(NonStaticClass obj)
+        {
+            System.Console.WriteLine("Copy");
+            this._field1 = obj._field1;
+        }
+
+        //private constructor - can only be called from within the class itself
+        // use case 1: restricting object creation using new Class();
+        // use case 2: object creation within class using public constructor or method
+        private NonStaticClass(int x, int y)
+        {
+            System.Console.WriteLine("Private");
+            this._field1 = x + y;
+        }
+
+        //calling private constructor using another public constructor
+        public NonStaticClass(int x, int y, int z) : this(x, y)
+        {
+            System.Console.WriteLine("Private using other constructor");
+            this._field1 = x + y + z;
+        }
+
+        public static NonStaticClass GetInstance(int a, int b)
+        {
+
+            //restruicting object creation from public method
+            //useful in case of complex object creation is required
+            System.Console.WriteLine("Private using other public method");
+            return new NonStaticClass(a, b);
+        }
+    }
+
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            //default parameterless constructor is called
+            NonStaticClass nonStaticClass = new NonStaticClass();
+            System.Console.WriteLine(nonStaticClass.Field1);
+
+            //Parameterised constructor call
+            NonStaticClass nonStaticClass2 = new NonStaticClass(2);
+            System.Console.WriteLine(nonStaticClass2.Field1);
+
+            //Copy constructor call
+            NonStaticClass nonStaticClass3 = new NonStaticClass(nonStaticClass2);
+            System.Console.WriteLine(nonStaticClass3.Field1);
+
+            //private constructor call
+            //using public method
+            NonStaticClass nonStaticClass4 = NonStaticClass.GetInstance(1, 2);
+            System.Console.WriteLine(nonStaticClass4.Field1);
+            //using public constructor
+            NonStaticClass nonStaticClass5 = new NonStaticClass(1, 1, 2);
+            System.Console.WriteLine(nonStaticClass5.Field1);
+        }
+    }
+}
+
