@@ -66,11 +66,11 @@ namespace Constructors
         }
 
         //calling private constructor using another public constructor
-        //constructor chaining in same class
+        //constructor chaining in same class - reduces code duplication
         public NonStaticClass(int x, int y, int z) : this(x, y)
         {
             System.Console.WriteLine("Private using other constructor");
-            this._field1 = x + y + z;
+            this._field1 += z; // x + y is already done in this(x, y)
         }
 
         public static NonStaticClass GetInstance(int a, int b)
