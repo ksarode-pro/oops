@@ -3,15 +3,25 @@
 
 namespace Constructors
 {
+    #region non_static
     class NonStaticClass
     {
         private int _field1 = 0;
+        private static int _static_field = 0;
 
         public int Field1
         {
             get
             {
                 return this._field1;
+            }
+        }
+
+        public static int StaticField
+        {
+            get
+            {
+                return _static_field;
             }
         }
 
@@ -35,6 +45,16 @@ namespace Constructors
         {
             System.Console.WriteLine("Copy");
             this._field1 = obj._field1;
+        }
+
+        //static constructor is used to initilialise static field / properties
+        //it can be part of static and non-static class
+        //called only once
+        //class when first object is created OR static member is accessed
+        static NonStaticClass()
+        {
+            System.Console.WriteLine("Static constructor");
+            _static_field = 1;
         }
 
         //private constructor - can only be called from within the class itself
@@ -82,7 +102,7 @@ namespace Constructors
             System.Console.WriteLine("Default constructor Derived2NonStaticClass");
         }
     }
-
+    #endregion
     class Program
     {
         public static void Main(string[] args)
@@ -109,6 +129,9 @@ namespace Constructors
 
             //impact of inheritance on constructors
             Derived2NonStaticClass derived2NonStaticClass = new Derived2NonStaticClass();
+
+            //static is actually called on first object creation
+            System.Console.WriteLine(NonStaticClass.StaticField);
 
         }
     }
