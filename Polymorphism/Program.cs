@@ -67,7 +67,7 @@ namespace Polymorphism
         public int Add(int a, int b)
         {
             Console.WriteLine("Method Hiding : Base class method");
-            return a - b;
+            return a + b;
         }
     }
     class MethodHiding_Sub : MethodHiding_Base
@@ -97,16 +97,18 @@ namespace Polymorphism
             baseObj = new DynamicPolymorphism_Sub();
             Console.WriteLine(baseObj.Add(5, 5));
 
+            Console.WriteLine("\nMethod Hiding Demo");
+
             MethodHiding_Base baseObj2 = new MethodHiding_Base();
-            baseObj2.Add(5, 5);
+            Console.WriteLine($"Base reference to base object: {baseObj2.Add(5, 2)}");
 
             MethodHiding_Sub subObj = new MethodHiding_Sub();
-            subObj.Add(5, 5);
+            Console.WriteLine($"Subclass reference to subclass object: {subObj.Add(5, 2)}");
 
             //Even if object is of subclass, base class method will be called
             //because refrence is of base class.
             MethodHiding_Base baseObj3 = new MethodHiding_Sub();
-            baseObj3.Add(5, 2);
+            Console.WriteLine($"Base reference to subclass object: {baseObj3.Add(5, 2)}");
         }
     }
 }
