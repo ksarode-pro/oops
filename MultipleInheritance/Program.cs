@@ -15,6 +15,16 @@ C# solves this using interfaces.
 You can implement multiple interfaces on a single class — interfaces have no method bodies (in the traditional sense), 
 so there's no ambiguity about which implementation to pick.
 */
+
+/*
+In case if interfaces with default implementation:
+The Diamond Problem ambiguity error in C# only occurs when 
+the base interface has no default implementation 
+and two child interfaces both provide one. 
+
+If the base interface has a default body, 
+the runtime uses it as the tiebreaker — no error.
+*/
 interface IFlyable
 {
     void Fly();
