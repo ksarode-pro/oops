@@ -1,5 +1,5 @@
-﻿//cunstroctors are special methods 
-//which gets involved while object creation
+//cunstroctors are special methods 
+//which gets invoked while object creation
 
 namespace Constructors
 {
