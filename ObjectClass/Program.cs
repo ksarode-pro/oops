@@ -1,4 +1,5 @@
-﻿// Every class in C# inherits from System.Object automatically
+//Object is the top level class for all types.
+// Every class in C# inherits from System.Object automatically
 using System.Runtime.InteropServices;
 
 public class Student  // implicitly : Object
